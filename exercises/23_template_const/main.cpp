@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
         ASSERT(tensor[i0] == 1.f, "tensor[i0] should be 1");
         ASSERT(tensor.data[0] == 1.f, "tensor[i0] should be 1");
 
-        unsigned int i1[]{3, 4, 99};
+        unsigned int i1[]{3, 4, 127};
         tensor[i1] = 2.f;
         ASSERT(tensor[i1] == 2.f, "tensor[i1] should be 2");
         ASSERT(tensor.data[3683] == 2.f, "tensor[i1] should be 2");
