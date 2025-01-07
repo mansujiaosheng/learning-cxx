@@ -12,6 +12,10 @@ struct Tensor {
         unsigned int size = 1;
         // TODO: 填入正确的 shape 并计算 size
         for (unsigned int i = 0; i < N; ++i) {
+            if (shape_[i] == 0) {
+                shape[i] = 1;
+                continue;
+            }
             shape[i] = shape_[i];
             size *= shape[i];
         }
@@ -72,7 +76,7 @@ int main(int argc, char **argv) {
         ASSERT(tensor[i0] == 1.f, "tensor[i0] should be 1");
         ASSERT(tensor.data[0] == 1.f, "tensor[i0] should be 1");
 
-        unsigned int i1[]{3, 4, 127};
+        unsigned int i1[]{3, 4, 99};
         tensor[i1] = 2.f;
         ASSERT(tensor[i1] == 2.f, "tensor[i1] should be 2");
         ASSERT(tensor.data[3683] == 2.f, "tensor[i1] should be 2");
