@@ -41,7 +41,7 @@ private:
     unsigned int data_index(unsigned int const indices[N]) const {
         unsigned int index = 0;
         unsigned int stride = 1;
-        for (unsigned int i = N-1; i >=0; --i) {
+        for (int i = N-1; i >=0; --i) {
             ASSERT(indices[i] < shape[i], "Invalid index");
             // TODO: 计算 index
             index += indices[i] * stride;
